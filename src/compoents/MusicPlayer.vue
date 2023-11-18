@@ -20,8 +20,11 @@ class Player extends Service {
 
   setMusic(src: string) {
     this.ensureAudio(() => {
-      if (audioEl.value)
-        audioEl.value.src = src
+      if (!audioEl.value)
+        return
+      if (audioEl.value.src !== src) return
+
+      audioEl.value.src = src
     })
   }
 
@@ -49,7 +52,7 @@ class Player extends Service {
   }
 
   pause() {
-    this.ensureAudio(()=>{
+    this.ensureAudio(() => {
       audioEl.value?.pause()
     })
   }
