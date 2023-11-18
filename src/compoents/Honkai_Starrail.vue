@@ -8,7 +8,7 @@ const ctx = useContext()
 
 onMounted(() => {
   ctx.inject(['music'], () => {
-    ctx.music.setMusic(StarrailBGM)
+    ctx.music.setMusic(StarrailBGM, true)
   })
 })
 

@@ -18,13 +18,13 @@ class Player extends Service {
     })
   }
 
-  setMusic(src: string) {
+  setMusic(src: string, autoplay: boolean = false) {
     this.ensureAudio(() => {
-      if (!audioEl.value)
-        return
+      if (!audioEl.value) return
       if (audioEl.value.src === src) return
 
       audioEl.value.src = src
+      if (autoplay) this.play()
     })
   }
 
