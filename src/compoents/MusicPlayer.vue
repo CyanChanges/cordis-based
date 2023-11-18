@@ -22,7 +22,7 @@ class Player extends Service {
     this.ensureAudio(() => {
       if (!audioEl.value)
         return
-      if (audioEl.value.src !== src) return
+      if (audioEl.value.src === src) return
 
       audioEl.value.src = src
     })
@@ -94,7 +94,7 @@ onMounted(() => {
       </div>
       <div class="toast-body">
         Music control here
-        <audio ref="audioEl" src="/src/assets/bgm.mp3" type="audio/mpeg" controls autoplay loop>Background music</audio>
+        <audio ref="audioEl" type="audio/mpeg" controls loop>Background music</audio>
       </div>
     </div>
   </div>
