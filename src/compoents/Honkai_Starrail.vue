@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {onMounted} from "vue";
+import {nextTick, onMounted} from "vue";
 import {useContext} from "../context.ts";
 import MusicControl from "./MusicControl.vue";
 import StarrailBGM from '../assets/bgm.mp3'
@@ -8,7 +8,9 @@ const ctx = useContext()
 
 onMounted(() => {
   ctx.inject(['music'], () => {
-    ctx.music.setMusic(StarrailBGM, true)
+    nextTick(() => {
+      ctx.music.setMusic(StarrailBGM)
+    })
   })
 })
 

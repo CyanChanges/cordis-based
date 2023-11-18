@@ -18,13 +18,19 @@ class Player extends Service {
     })
   }
 
-  setMusic(src: string, autoplay: boolean = false) {
+  setAutoplay(autoplay: boolean) {
+    if (!audioEl.value) return
+    if (autoplay) audioEl.value.autoplay = true
+  }
+
+  setMusic(src: string, play: boolean = false) {
     this.ensureAudio(() => {
       if (!audioEl.value) return
       if (audioEl.value.src === src) return
 
       audioEl.value.src = src
-      if (autoplay) this.play()
+
+      if (play) this.play()
     })
   }
 
@@ -79,7 +85,9 @@ declare module '../context.ts' {
 const ctx = useContext()
 onMounted(() => {
   ctx.plugin(Player)
+  // ctx.music.setAutoplay(true)
 })
+
 // ctx.root.provide('music', MusicPlayer)
 </script>
 
