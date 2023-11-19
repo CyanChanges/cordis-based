@@ -11,7 +11,7 @@ ctx.inject(['music'], () => {
 })
 </script>
 <template>
-  <div class="col-2 mt-3 m-2 card" :class="{ placeholder: !loaded }">
+  <div class="card" :class="{ placeholder: !loaded }">
     <p class="card-text fs-4 fw-bold mt-2 text-center">Controls</p>
     <div class="card-body" role="group">
       <div class="btn-group" :class="{ 'disabled': !loaded }">

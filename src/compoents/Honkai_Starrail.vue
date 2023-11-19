@@ -19,11 +19,13 @@ onMounted(() => {
 
 <template>
   <div class="container-fluid">
-    <div class="row">
-      <p class="h3">你说的对，但是</p>
-      <music-control></music-control>
+    <p class="h3">你说的对，但是</p>
+    <div class="row gap-2">
+      <div class="col-lg-2 col-sm-auto text-center">
+        <music-control id="music-control" class="h-100 w-auto"></music-control>
+      </div>
       <div class="col">
-        <div class="card" style="width: 22em">
+        <div id="starrail-card" class="card">
           <div class="hkstrl-bg card-img-top">
             <div class="hkstrl-banner-box">
               <div class="hkstrl-banner">
@@ -47,12 +49,28 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped>
+
+<style lang="scss" scoped>
+@use 'sass:map';
+@import 'bootstrap/scss/bootstrap';
+
+#music-control {
+  @media (max-width: map.get($grid-breakpoints, 'sm')) {
+    width: 22em !important;
+  }
+}
+
+#starrail-card {
+  overflow: hidden;
+  width: 22em;
+}
+
 .hkstrl-bg {
-  background: url("../assets/hkstarrail.webp") left 0 top 0 / 22em no-repeat;
-  width: 22.3em;
-  height: 11.3rem;
+  background: url("../assets/hkstarrail.webp");
   position: relative;
+  width: 22em;
+  height: 11.3rem;
+  background-size: contain;
 }
 
 .hkstrl-banner {
