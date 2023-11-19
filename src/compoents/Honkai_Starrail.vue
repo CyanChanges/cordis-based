@@ -19,7 +19,7 @@ onMounted(() => {
 
 <template>
   <div class="container-fluid">
-    <p class="h3">你说的对，但是</p>
+    <p class="h3 m-3">你说的对，但是</p>
     <div class="row gap-2">
       <div class="col-lg-2 col-sm-auto text-center">
         <music-control id="music-control" class="h-100 w-auto"></music-control>
